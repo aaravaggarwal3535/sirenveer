@@ -11,6 +11,8 @@ const Aboutpage = () => {
   const [trafficPrediction, setTrafficPrediction] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const[forwardlogin,setforwardlogin] = useState(false)
+   const [watchdemo,setwatchdemo] = useState(false)
+
   // const [activeFeature, setActiveFeature] = useState(0);
   const fileInputRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -27,7 +29,7 @@ const Aboutpage = () => {
 
 useEffect(() => {
     if (forwardlogin) {
-      navigate("/Login");
+      navigate("/Home");
     }
     setforwardlogin(false)
   }, [forwardlogin]);
@@ -148,6 +150,30 @@ useEffect(() => {
           }}
           transition={{ type: "spring", stiffness: 50, damping: 15 }}
         />
+
+           {watchdemo && (
+  <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
+    <div className="relative w-full h-2/3   max-w-md p-4 rounded-md bg-gray-900 shadow-lg">
+      
+      {/* Close Button */}
+      <button
+        className="absolute top-2 right-2 p-2 rounded-full bg-white/70 hover:bg-red-500 text-black hover:text-white transition"
+        onClick={() => setwatchdemo(false)}
+        aria-label="Close demo"
+      >
+        <XMarkIcon className="h-5 w-5" />
+      </button>
+
+      {/* Video */}
+      <video
+        src="./videos/demovideo.mp4"
+        controls
+        autoPlay
+        className="w-full h-full rounded-md"
+      />
+    </div>
+  </div>
+)}
         
         {/* Floating particles */}
         {Array.from({ length: 20 }).map((_, i) => (
@@ -240,13 +266,14 @@ useEffect(() => {
                   whileTap={{ scale: 0.95 }}
                   onClick={()=>{setforwardlogin(true)}}
                 >
-                  Log In 
+                  Get Started
                 </motion.button>
                 
                 <motion.button
                   className="px-8 py-4 border border-gray-600 rounded-xl bg-black font-semibold text-lg hover:bg-gray-800/50 transition-all"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={()=>{setwatchdemo(true)}}
                 >
                   Watch Demo
                 </motion.button>
@@ -568,7 +595,7 @@ useEffect(() => {
                 onClick={()=>{setforwardlogin(true)}}
               
               >
-               Log In
+               Get Started
               </motion.button>
               
               <motion.button

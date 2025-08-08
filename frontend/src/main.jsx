@@ -10,7 +10,6 @@ import App from './App';
 import Aboutpage from './pages/About';
 import Login from './pages/Login';
 import Homepage from './pages/Home';
-import EmergencyRoutePage from './pages/realworldemo';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -18,10 +17,10 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
-      { path: '/Login', element: <Login /> },
+      // { path: '/Login', element: <Login /> },
       { path: '', element: <Aboutpage /> },
       {path:'/Home',element:<Homepage />},
-      {path:'/demo',element:<EmergencyRoutePage />}
+      
       // { path: '', element: <Home /> },
       // { path: 'Login', element: <Login /> },
     ],

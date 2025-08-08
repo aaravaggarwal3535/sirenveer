@@ -20,7 +20,7 @@ const Homepage = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [showAnalysisCard, setShowAnalysisCard] = useState(false);
   const [apiResponse, setApiResponse] = useState(null);
- 
+ const [watchdemo,setwatchdemo] = useState(false)
   const fileInputRef = useRef(null);
   const videoRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -338,6 +338,31 @@ useEffect(() => {
       {/* Animated Background */}
       <motion.div className="absolute inset-0 bg-[linear-gradient(to_right,_#0f172a,_#0f232a,_#000000,_#1a1a1a,_#0f172a)]" />
 
+    {watchdemo && (
+  <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
+    <div className="relative w-full h-2/3   max-w-md p-4 rounded-md bg-gray-900 shadow-lg">
+      
+      {/* Close Button */}
+      <button
+        className="absolute top-2 right-2 p-2 rounded-full bg-white/70 hover:bg-red-500 text-black hover:text-white transition"
+        onClick={() => setwatchdemo(false)}
+        aria-label="Close demo"
+      >
+        <XMarkIcon className="h-5 w-5" />
+      </button>
+
+      {/* Video */}
+      <video
+        src="./videos/demovideo.mp4"
+        controls
+        autoPlay
+        className="w-full h-full rounded-md"
+      />
+    </div>
+  </div>
+)}
+
+
       {/* Floating Particles */}
       {particles.map((particle) => (
         <motion.div
@@ -586,9 +611,12 @@ onClick={() => {
                   </motion.button>
                   
                   <motion.button
-                    className="px-8 py-4 border border-gray-600 rounded-xl font-semibold hover:bg-white/5 transition-all"
+                    className="px-8 py-4 border border-gray-600 bg-black rounded-xl font-semibold hover:bg-white/5 transition-all"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={()=>{
+                    setwatchdemo(true)
+                    }}
                   >
                     Watch Demo
                   </motion.button>
