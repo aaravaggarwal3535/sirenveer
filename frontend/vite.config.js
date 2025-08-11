@@ -4,10 +4,10 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'dist',
-    emptyOutDir: true
+    outDir: 'dist',        // where the production build goes
+    emptyOutDir: true      // clean old files
   },
   server: {
-    historyApiFallback: true
+    historyApiFallback: true // SPA routing in dev
   }
 })
