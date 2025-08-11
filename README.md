@@ -29,7 +29,7 @@ This project leverages machine learning to classify traffic congestion levels in
   - **Low traffic**
   - **Medium traffic**
   - **High traffic**
-- Likely frameworks: `PyTorch` / `TensorFlow` (customize as needed)
+- Likely frameworks: `PyTorch`(customize as needed)
 
 ---
 
@@ -37,7 +37,7 @@ This project leverages machine learning to classify traffic congestion levels in
 
 - Upload an image of a traffic scene  
 - Backend analyzes the image using an AI model  
-- Prediction returned: `Low`, `Medium`, or `High` congestion  
+- Prediction returned: `green`, `yellow`, or `red` congestion  
 - Clean and fast UI with React + Vite
 
 ---
